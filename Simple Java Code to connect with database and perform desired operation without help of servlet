@@ -1,0 +1,20 @@
+To do so, create a java file inside Eclipse (I'm working with it, so I know but not about other IDEs).
+Download mysql-connector.jar file and paste it inside the src/main/webapp/WEB-INF/lib/mysql-connector.jar and right click on the connector => then on Build Path
+=> then on Add to Build Path and you are done.
+
+Now, you do some code..
+
+// Load class
+Class.forName("com.mysql.jdbc.Driver");
+// Create Connection
+Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/<DB_name>","root","<password>");
+// Create Statements
+Statement stmt = con.createStatement();
+// Create String
+String sql = "create table hello(id int,name text)";
+stmt.executeUpdate(sql);
+// Close the Connection
+con.close();
+System.out.println("Amazing! Table Created");
+
+all inside main method. Import Required Packages.
