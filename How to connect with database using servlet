@@ -1,0 +1,36 @@
+All code are written in java inside java-servlet-class.
+
+Step 1:- create a servlet ( I am using Eclipse IDE, it make it easier to perform those task and I had done internship of java developer using it so I'm
+quite familiar with it).
+
+Step 2:- I mostly use doPost() method in the servlet, as it hides the information of the user who is making the request. Inside doPost() method..
+first load the JDBC driver (Java Database Connection Driver) and other stuffs.. as follows:
+
+response.setContentType("text/html"); // Type of content
+PrintWriter out = response.getWriter();
+
+// Name of parameter that you will get through the request made by user, to store them we create string variables... You can create as many as you want.
+String <name> =request.getParameter("<parameter_name>");
+
+// write the below code inside try-catch block
+// Load Drivers
+Class.forName("com.mysql.jdbc.Driver");
+// Create Connection
+Connection con = DriverManager.getConnection("jdbc:mysql://localhost/3306/<DB_name>","<user_name_of_sql>(can be root by default","<password of user>");
+// Create statement or Prepare Statement
+PreparedStatement stmt = con.prepareStatement("<enter your query like: insert into table values(?,?,?...etc.)>");
+
+// After preparing the statement you set those variable values using the same stmt statement
+stmt.setString(1, <variable 1>);
+...etc. //variable should be set order wise don't set them randomly. In an order which you create the table with.
+
+// After that you are mostly done, but while writing those above code the IDE will show error, so just hover over them and it will show you to import respective
+// libraries/class related to those functions.
+// If you want to check if any update occured or not then..
+int i = 0;
+if(i>0){
+  out.println("Operation done.."); // can use this code
+}
+else{
+// you can write anything you want. 
+}
