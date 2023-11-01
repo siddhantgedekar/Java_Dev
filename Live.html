@@ -1,0 +1,94 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>Live</title>
+<style>
+* {
+padding: 0;
+}
+body {
+background-color: black;
+}
+</style>
+
+</head>
+<body>
+<div style="width: 100%; height: 100%;">
+<!-- keep the video muted to let it play automatically 
+  give it certain width and height then insert source tag inside the video 
+  tag to play the video -->
+<video autoplay onready="vplay()" muted 
+height="100%" width="100%" id="vid">
+<source src="video.mp4" 
+type="video/mp4" ></source>
+</video>
+
+</div>
+
+<script>
+  /*
+  define the vid variable to conrtols the video tag with it's id
+  define rad variable to get random value of video's length 
+  so that you can skip to random time in the video by using Math.random() function
+  */
+let vid = document.getElementById("vid");
+let rad = 0;
+  /*
+  telling user basic instructions using alert function
+  */
+window.alert("1. Press r to set random time stamp, \n2. m to toggle mute option, \n3. Scroll to change volume, \n4. a/d for 5/10 seconds back/forth");
+  /*
+  add an event listener for 'keypress' event, so you can handle/control
+  the video playback
+  */
+document.addEventListener('keypress', (event) => {
+let m = "m";
+/* checking if the 'r' key is pressed if true, rad will be assigned 
+a random value of movie's lengths range and using 'currentTime' property 
+of video tag we will set the value of the video/movie
+*/
+if(event.key === "r"){
+rad = Math.random() * 5059 + 1;
+vid.currentTime = rad;
+}
+/* here we are doing the same thing as above to skip 5 and 10 seconds */
+if(event.key === "a"){
+vid.currentTime -= 5;
+}
+if(event.key === "d"){
+vid.currentTime += 10;
+}
+
+  /* toggling the mute option using muted property of video tag when 'm' is pressed */
+if(event.key === m){
+console.log("mute toggled");
+vid.play();
+vid.muted = !vid.muted;
+}}, false);
+
+  /* checking event of mouse 'wheel' whether it scrolls up/down like below */
+document.addEventListener('wheel', function(event){
+const delta = event.deltaY;
+  /* then by checking the condition, we increase or decrease the volume of the movie */
+if(delta > 0){
+vid.volume -= 0.1;
+if(delta === 1.1){
+vid.volume = 1;
+}
+console.log("wheel up");
+}
+
+if(delta < 1){
+vid.volume += 0.1;
+if(delta === -0.1){
+vid.volume = 0;
+}
+console.log("wheel down");
+}
+});
+
+vid.currentTime = rad;
+
+</script>
+</body>
+</html>
