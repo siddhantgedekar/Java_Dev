@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: linear-gradient(to bottom right, darkslategrey, midnightblue);
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+a:hover {
+    color: aquamarine;
+}
+
+.nav {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: 1px dashed grey;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.container {
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    backdrop-filter: contrast(1.2);
+    backdrop-filter: brightness(1.1px);
+    width: 400px;
+    height: 400px;
+    box-shadow: 5px 5px 10px 0px rgba(220, 220, 220, 0.1);
+    overflow: hidden;
+}
+
+.input {
+    padding: 10px;
+    height: 30%;
+}
+
+label {
+    color: green;
+}
+
+#inp {
+    background: transparent;
+    border-radius: 5px;
+    border: 1px dashed white;
+    padding: 10px;
+    color: grey;
+}
+
+.btn {
+    margin: 7%;
+    width: 70px;
+    background: transparent;
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    color: white;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+#speed {
+    padding: 10px;
+    background: transparent;
+    border: 1px dashed white;
+    border-radius: 4px;
+}
+
+.output {
+    height: 38%;
+    padding: 10px;
+}
+h4 {
+    padding: 0 5px;
+    border: 1px dashed white;
+}
+
+#outputBox {
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+}
